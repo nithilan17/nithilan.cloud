@@ -7,8 +7,8 @@ import calendarLogo from '../Images/calendar.png';
 
 function Home() {
   const [title] = useTypewriter({
-    words: ["Hi, I'm Nithilan!", "Welcome👋"],
-    loop: Infinity,
+    words: ["Hi, I'm Nithilan!"],
+    loop: 1,
   });
 
   return (
