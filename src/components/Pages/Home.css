@@ -27,7 +27,7 @@ a {
   justify-content: center;
   font-size: calc(10px + 1.7vmin);
   color: white;
-  padding-top: 256px; /* Adjust this value as needed */
+  padding-top: 27vh; /* Adjust this value as needed */
 }
   .about-me {
     text-align: center;
