@@ -4,6 +4,8 @@ import './Home.css';
 import githubLogo from '../Images/github.png';
 import linkedinLogo from '../Images/linkedin.png';
 import calendarLogo from '../Images/calendar.png';
+import resumeLogo from '../Images/resume.png';
+
 
 function Home() {
   const [title] = useTypewriter({
@@ -26,6 +28,7 @@ function Home() {
           <br></br> <br></br>
           I currently work at Illinois Athletics as a Data Analyst (part-time) 
           and previously interned at Northern Trust. I am Interested in <b>scalable systems</b>, <b>cloud networking</b>, and <b>AI/ML</b>.
+          Feel free to reach out or connect!
         </p>
       </section>
       
@@ -40,11 +43,17 @@ function Home() {
             <img src={linkedinLogo} alt="LinkedIn" className="social-logo" />
           </button>
         </a>
+        <a href="https://nithilan.tiiny.site/" target="_blank" rel="noopener noreferrer">
+          <button className="social-button">
+            <img src={resumeLogo} alt="Resume" className="social-logo" />
+          </button>
+        </a>
         <a href="https://calendly.com/nithilan17" target="_blank" rel="noopener noreferrer">
           <button className="social-button">
             <img src={calendarLogo} alt="Calendar" className="social-logo" />
           </button>
         </a>
+
       </div>
 
       {/* Footer Always at Bottom */}
