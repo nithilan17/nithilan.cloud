@@ -27,7 +27,7 @@ function Home() {
           
           <br></br> <br></br>
           I currently work at Illinois Athletics as a Data Analyst (part-time) 
-          and previously interned at Northern Trust. I am Interested in <b>scalable systems</b>, <b>cloud networking</b>, and <b>AI/ML</b>.
+          and previously interned at Northern Trust. I am interested in <b>scalable systems</b>, <b>cloud networking</b>, and <b>AI/ML</b>.
           Feel free to reach out or connect!
         </p>
       </section>
