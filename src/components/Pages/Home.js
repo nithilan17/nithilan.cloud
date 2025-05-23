@@ -26,8 +26,8 @@ function Home() {
           I'm a junior studying Computer Science and Economics at <a href="https://siebelschool.illinois.edu/" target="_blank" rel="noopener noreferrer">UIUC</a>.
           
           <br></br> <br></br>
-          I currently work at Illinois Athletics as a Data Analyst (part-time) 
-          and previously interned at Northern Trust. I am interested in <b>scalable systems</b>, <b>cloud networking</b>, and <b>AI/ML</b>.
+          I currently work at CME Group as a swe intern
+          and previously interned at Illinois Athletics and Northern Trust. I am interested in <b>scalable systems</b>, <b>cloud networking</b>, and <b>automation</b>.
           Feel free to reach out or connect!
         </p>
       </section>
