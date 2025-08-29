@@ -23,7 +23,7 @@ function Home() {
 
       <section className="about-me">
         <p>
-          I'm a junior studying Computer Science and Economics at <a href="https://siebelschool.illinois.edu/" target="_blank" rel="noopener noreferrer">UIUC</a>.
+          I'm a senior studying Computer Science and Economics at <a href="https://siebelschool.illinois.edu/" target="_blank" rel="noopener noreferrer">UIUC</a>.
           
           <br></br> <br></br>
           I currently work at CME Group as a swe intern
