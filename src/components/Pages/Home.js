@@ -48,11 +48,11 @@ function Home() {
             <img src={resumeLogo} alt="Resume" className="social-logo" />
           </button>
         </a>
-        <a href="https://calendly.com/nithilan17" target="_blank" rel="noopener noreferrer">
+        {/* <a href="https://calendly.com/nithilan17" target="_blank" rel="noopener noreferrer">
           <button className="social-button">
             <img src={calendarLogo} alt="Calendar" className="social-logo" />
           </button>
-        </a>
+        </a> */}
 
       </div>
 
