@@ -23,11 +23,10 @@ function Home() {
 
       <section className="about-me">
         <p>
-          I'm a senior studying Computer Science and Economics at <a href="https://siebelschool.illinois.edu/" target="_blank" rel="noopener noreferrer">UIUC</a>.
+          I'm a software engineer based in Chicago, IL📍
           
           <br></br> <br></br>
-          I currently work at CME Group as a swe intern
-          and previously interned at Illinois Athletics and Northern Trust. I am interested in <b>scalable systems</b>, <b>cloud networking</b>, and <b>automation</b>.
+          I studied Computer Science and Economics at <a href="https://siebelschool.illinois.edu/" target="_blank" rel="noopener noreferrer">UIUC</a> ('25). I am interested in <b>scalable systems</b> and <b>automation</b>.
           Feel free to reach out or connect!
         </p>
       </section>
