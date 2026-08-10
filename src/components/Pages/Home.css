@@ -90,6 +90,64 @@ a {
     height: 28px;
 }
 
+.spotify-widget {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background-color: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 12px;
+  padding: 10px 16px;
+  margin: 4px auto 20px auto;
+  max-width: 320px;
+  text-align: left;
+  transition: 0.15s ease;
+  animation: flyIn 0.5s ease forwards;
+  animation-delay: 1.2s;
+  opacity: 0;
+}
+
+.spotify-widget:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.spotify-art {
+  width: 44px;
+  height: 44px;
+  border-radius: 6px;
+  flex-shrink: 0;
+}
+
+.spotify-text {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.spotify-label {
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #1DB954;
+  font-weight: 600;
+}
+
+.spotify-track {
+  font-size: 0.85rem;
+  color: white;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.spotify-artist {
+  font-size: 0.75rem;
+  color: rgb(164, 164, 164);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
 .footer {
   font-size: calc(4px + 1.5vmin);
   width: 100%;
