@@ -21,7 +21,7 @@
 
 @keyframes twinkle {
   0%, 100% {
-    opacity: 0.3;
+    opacity: 0.25;
   }
   50% {
     opacity: 0.9;
@@ -48,8 +48,11 @@
 
 @keyframes shoot {
   0% {
-    opacity: 1;
+    opacity: 0;
     transform: rotate(calc(var(--angle) * -1)) translateY(0);
+  }
+  25% {
+    opacity: 1;
   }
   100% {
     opacity: 0;
