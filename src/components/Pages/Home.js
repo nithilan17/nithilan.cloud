@@ -42,7 +42,7 @@ function SpotifyNowPlaying() {
 
       <div className="spotify-text">
         <span className="spotify-label">
-          Last played on 
+          Last played on
           <img src={spotifyLogo} alt="Spotify" className="spotify-logo" />
         </span>
         <span className="spotify-track">{track.name}</span>
