@@ -4,7 +4,8 @@ import './Home.css';
 import Starfield from './Starfield';
 import githubLogo from '../Images/github.png';
 import linkedinLogo from '../Images/linkedin.png';
-import calendarLogo from '../Images/calendar.png';
+import spotifyLogo from '../Images/spotify.png';
+// import calendarLogo from '../Images/calendar.png';
 import resumeLogo from '../Images/resume.png';
 
 function SpotifyNowPlaying() {
@@ -38,8 +39,12 @@ function SpotifyNowPlaying() {
       {track.albumArt && (
         <img src={track.albumArt} alt={track.name} className="spotify-art" />
       )}
+
       <div className="spotify-text">
-        <span className="spotify-label">Last listened to</span>
+        <span className="spotify-label">
+          Last played on
+          <img src={spotifyLogo} alt="Spotify" className="spotify-logo" />
+        </span>
         <span className="spotify-track">{track.name}</span>
         <span className="spotify-artist">{track.artist}</span>
       </div>

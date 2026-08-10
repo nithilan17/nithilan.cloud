@@ -111,6 +111,12 @@ a {
   background-color: rgba(255, 255, 255, 0.1);
 }
 
+.spotify-logo {
+  width: 16px;
+  height: 16px;
+  object-fit: contain;
+}
+
 .spotify-art {
   width: 44px;
   height: 44px;
