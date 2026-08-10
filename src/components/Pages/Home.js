@@ -90,7 +90,7 @@ function Home() {
             <img src={linkedinLogo} alt="LinkedIn" className="social-logo" />
           </button>
         </a>
-        <a href="https://drive.google.com/file/d/1mkr-lGyJgXfcIbBaKxhRePuLOJEy_YYn/view?usp=sharing" target="_blank" rel="noopener noreferrer">
+        <a href="https://drive.google.com/file/d/108k3zyVZcQ9Jg1gJ7ZBZZJKCPYcz3MHY/view?usp=sharing" target="_blank" rel="noopener noreferrer">
           <button className="social-button">
             <img src={resumeLogo} alt="Resume" className="social-logo" />
           </button>
