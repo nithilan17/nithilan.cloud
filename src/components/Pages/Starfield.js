@@ -9,16 +9,19 @@ function randomBetween(min, max) {
 }
 
 function Starfield() {
-  const [stars] = useState(() =>
-    Array.from({ length: STAR_COUNT }, (_, i) => ({
-      id: i,
-      top: randomBetween(0, 100),
-      left: randomBetween(0, 100),
-      size: randomBetween(1, 2.2),
-      duration: randomBetween(3, 7),
-      delay: randomBetween(0, 5),
-    }))
-  );
+    const [stars] = useState(() =>
+    Array.from({ length: STAR_COUNT }, (_, i) => {
+        const duration = randomBetween(3, 7);
+        return {
+        id: i,
+        top: randomBetween(0, 100),
+        left: randomBetween(0, 100),
+        size: randomBetween(1, 2.2),
+        duration,
+        delay: -randomBetween(0, duration), // negative = start mid-cycle
+        };
+    })
+    );
 
   const [shootingStars, setShootingStars] = useState([]);
   const nextId = useRef(0);

@@ -21,7 +21,7 @@
 
 @keyframes twinkle {
   0%, 100% {
-    opacity: 0.25;
+    opacity: 0.3;
   }
   50% {
     opacity: 0.9;
