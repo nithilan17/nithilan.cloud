@@ -72,7 +72,7 @@ function Home() {
           I'm a software engineer from Chicago, IL📍
           
           <br></br> <br></br>
-          I studied Computer Science and Economics at <a href="https://siebelschool.illinois.edu/" target="_blank" rel="noopener noreferrer">UIUC</a> ('26). I am interested in <b>scalable systems</b> and <b>automation</b>.
+          I studied Computer Science and Economics at <a href="https://siebelschool.illinois.edu/" target="_blank" rel="noopener noreferrer">UIUC</a> ('26). I am interested in <b>agentic AI</b>, <b>scalable systems</b>, and <b>automation</b>.
           Feel free to reach out or connect!
         </p>
       </section>
