@@ -1,0 +1,58 @@
+.starfield {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  overflow: hidden;
+  background: transparent;
+}
+
+/* Twinkling static stars */
+.star {
+  position: absolute;
+  background-color: var(--star-color, #ffffff);
+  border-radius: 50%;
+  opacity: 0.6;
+  animation: twinkle var(--twinkle-duration, 4s) infinite ease-in-out;
+  box-shadow: 0 0 2px rgba(255, 255, 255, 0.5);
+}
+
+@keyframes twinkle {
+  0%, 100% {
+    opacity: 0.3;
+  }
+  50% {
+    opacity: 0.9;
+  }
+}
+
+/* Shooting stars with trail effect */
+.shooting-star {
+  position: absolute;
+  width: 2px;
+  height: 100px;
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.8) 0%,
+    rgba(255, 255, 255, 0.4) 50%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  pointer-events: none;
+  animation: shoot 1.4s ease-in forwards;
+  transform: rotate(calc(var(--angle) * -1));
+  transform-origin: top center;
+  filter: blur(0.5px);
+}
+
+@keyframes shoot {
+  0% {
+    opacity: 1;
+    transform: rotate(calc(var(--angle) * -1)) translateY(0);
+  }
+  100% {
+    opacity: 0;
+    transform: rotate(calc(var(--angle) * -1)) translateY(300px);
+  }
+}

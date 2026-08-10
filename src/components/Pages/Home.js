@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useTypewriter, Cursor } from 'react-simple-typewriter';
 import './Home.css';
+import Starfield from './Starfield';
 import githubLogo from '../Images/github.png';
 import linkedinLogo from '../Images/linkedin.png';
 import calendarLogo from '../Images/calendar.png';
@@ -38,7 +39,7 @@ function SpotifyNowPlaying() {
         <img src={track.albumArt} alt={track.name} className="spotify-art" />
       )}
       <div className="spotify-text">
-        <span className="spotify-label">Last played</span>
+        <span className="spotify-label">Last listened to</span>
         <span className="spotify-track">{track.name}</span>
         <span className="spotify-artist">{track.artist}</span>
       </div>
@@ -54,6 +55,7 @@ function Home() {
 
   return (
     <div className="App">
+      <Starfield />
       <header className="App-header" id="home">
         <h1>
           <span>{title}</span>
