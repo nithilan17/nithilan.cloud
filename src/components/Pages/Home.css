@@ -115,6 +115,8 @@ a {
   width: 16px;
   height: 16px;
   object-fit: contain;
+  position: relative;
+  top: -1px;
 }
 
 .spotify-art {
