@@ -5,7 +5,7 @@ import Home  from "./components/Pages/Home";
 function App() {
   return (
     <>
-      <Router>
+      <Router future={{ v7_startTransition: true, v7_relativeSplatPath: true }}>
         <div className="pages">
           <Routes>
             <Route path="/" element={<Home />} />
