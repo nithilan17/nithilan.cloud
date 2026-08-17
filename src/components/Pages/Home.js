@@ -58,6 +58,17 @@ function Home() {
     loop: 1,
   });
 
+  useEffect(() => {
+    console.log(
+      "%c👋 Hey, curious dev.",
+      "color: #1DB954; font-size: 16px; font-weight: bold;"
+    );
+    console.log(
+      "%cLike what you see? Check out the source: https://github.com/nithilan17",
+      "color: #a4a4a4; font-size: 12px;"
+    );
+  }, []);
+
   return (
     <div className="App">
       <Starfield />

@@ -1,8 +1,8 @@
 import React, { useEffect, useState, useRef } from "react";
 import "./Starfield.css";
 
-// Number of static twinkling stars. Kept low for subtlety.
 const STAR_COUNT = 70;
+const MAX_CLICK_STARS = 8; // caps rapid-click spam
 
 function randomBetween(min, max) {
   return Math.random() * (max - min) + min;
@@ -18,37 +18,56 @@ function Starfield() {
         left: randomBetween(0, 100),
         size: randomBetween(1, 2.2),
         duration,
-        delay: -randomBetween(0, duration), // negative = start mid-cycle
+        delay: -randomBetween(0, duration),
         };
     })
     );
 
   const [shootingStars, setShootingStars] = useState([]);
   const nextId = useRef(0);
+  const clickStarCount = useRef(0);
 
   useEffect(() => {
     let timeoutId;
 
-    const spawnShootingStar = () => {
+    const spawnShootingStar = (top, left, angle) => {
       const id = nextId.current++;
-      const top = randomBetween(0, 40); // upper portion of the screen only
-      const left = randomBetween(0, 70);
-      const angle = randomBetween(20, 35);
-
       setShootingStars((prev) => [...prev, { id, top, left, angle }]);
-
-      // Remove after animation finishes
       setTimeout(() => {
         setShootingStars((prev) => prev.filter((s) => s.id !== id));
       }, 1400);
-
-      // Schedule next one — infrequent, so it stays subtle
-      timeoutId = setTimeout(spawnShootingStar, randomBetween(6000, 14000));
     };
 
-    timeoutId = setTimeout(spawnShootingStar, randomBetween(2000, 5000));
+    const spawnAmbientStar = () => {
+      spawnShootingStar(randomBetween(0, 40), randomBetween(0, 70), randomBetween(20, 35));
+      timeoutId = setTimeout(spawnAmbientStar, randomBetween(6000, 14000));
+    };
+
+    timeoutId = setTimeout(spawnAmbientStar, randomBetween(2000, 5000));
 
     return () => clearTimeout(timeoutId);
+  }, []);
+
+  useEffect(() => {
+    const handleClick = (e) => {
+      // Soft rate-limit so someone spam-clicking doesn't flood the screen
+      if (clickStarCount.current >= MAX_CLICK_STARS) return;
+      clickStarCount.current += 1;
+      setTimeout(() => { clickStarCount.current -= 1; }, 1400);
+
+      const id = nextId.current++;
+      const top = (e.clientY / window.innerHeight) * 100;
+      const left = (e.clientX / window.innerWidth) * 100;
+      const angle = randomBetween(15, 45);
+
+      setShootingStars((prev) => [...prev, { id, top, left, angle }]);
+      setTimeout(() => {
+        setShootingStars((prev) => prev.filter((s) => s.id !== id));
+      }, 1400);
+    };
+
+    window.addEventListener("click", handleClick);
+    return () => window.removeEventListener("click", handleClick);
   }, []);
 
   return (
