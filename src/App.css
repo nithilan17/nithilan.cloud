@@ -3,13 +3,16 @@
   padding: 0;
 }
 
-body {
+html, body {
+  height: 100%;
+  min-height: 100dvh;
   background-image: linear-gradient(#181a1e, #383f4e);
-    /* background-image: linear-gradient(#22262d, #2b2d30); */
+  overscroll-behavior-y: none; /* stops the white rubber-band flash on scroll bounce */
 }
 
 .pages {
   color: #ffffff;
   text-align: center;
   font-size: 3.5rem;
+  min-height: 100dvh;
 }

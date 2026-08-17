@@ -3,12 +3,11 @@
   top: 0;
   left: 0;
   width: 100%;
-  height: 100%;
+  height: 100dvh; /* was 100% (resolves like old vh for fixed elements) */
   pointer-events: none;
   overflow: hidden;
   background: transparent;
 }
-
 /* Twinkling static stars */
 .star {
   position: absolute;
