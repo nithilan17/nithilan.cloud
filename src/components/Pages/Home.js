@@ -63,6 +63,10 @@ function Home() {
       'color: #1DB954; font-size: 16px; font-weight: bold;',
     );
     console.log(
+      '%cconst nextStep = "build something delightful";',
+      'color: #8be9fd; font-family: monospace; font-size: 13px;',
+    );
+    console.log(
       '%cLike what you see? Check out the source: https://github.com/nithilan17',
       'color: #a4a4a4; font-size: 12px;',
     );
