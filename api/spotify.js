@@ -1,25 +1,46 @@
 export default async function handler(req, res) {
+  if (req.method !== 'GET') {
+    return res.status(405).json({ error: 'Method not allowed' });
+  }
+
   try {
-    const { SPOTIFY_CLIENT_ID, SPOTIFY_CLIENT_SECRET, SPOTIFY_REFRESH_TOKEN } = process.env;
+    const { SPOTIFY_CLIENT_ID, SPOTIFY_CLIENT_SECRET, SPOTIFY_REFRESH_TOKEN } =
+      process.env;
+
+    if (
+      !SPOTIFY_CLIENT_ID ||
+      !SPOTIFY_CLIENT_SECRET ||
+      !SPOTIFY_REFRESH_TOKEN
+    ) {
+      console.error('Spotify API credentials are not configured');
+      return res.status(503).json({ error: 'Spotify is unavailable' });
+    }
 
     // Exchange the long-lived refresh token for a short-lived access token
-    const tokenResponse = await fetch('https://accounts.spotify.com/api/token', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/x-www-form-urlencoded',
-        Authorization:
-          'Basic ' + Buffer.from(`${SPOTIFY_CLIENT_ID}:${SPOTIFY_CLIENT_SECRET}`).toString('base64'),
+    const tokenResponse = await fetch(
+      'https://accounts.spotify.com/api/token',
+      {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded',
+          Authorization:
+            'Basic ' +
+            Buffer.from(
+              `${SPOTIFY_CLIENT_ID}:${SPOTIFY_CLIENT_SECRET}`,
+            ).toString('base64'),
+        },
+        body: new URLSearchParams({
+          grant_type: 'refresh_token',
+          refresh_token: SPOTIFY_REFRESH_TOKEN,
+        }),
       },
-      body: new URLSearchParams({
-        grant_type: 'refresh_token',
-        refresh_token: SPOTIFY_REFRESH_TOKEN,
-      }),
-    });
+    );
 
     const tokenData = await tokenResponse.json();
 
     if (!tokenResponse.ok) {
-      return res.status(500).json({ error: 'Failed to refresh token', details: tokenData });
+      console.error('Failed to refresh Spotify token', tokenData);
+      return res.status(502).json({ error: 'Failed to refresh Spotify token' });
     }
 
     const { access_token } = tokenData;
@@ -27,13 +48,16 @@ export default async function handler(req, res) {
     // Fetch the most recently played track
     const recentResponse = await fetch(
       'https://api.spotify.com/v1/me/player/recently-played?limit=1',
-      { headers: { Authorization: `Bearer ${access_token}` } }
+      { headers: { Authorization: `Bearer ${access_token}` } },
     );
 
     const recentData = await recentResponse.json();
 
     if (!recentResponse.ok) {
-      return res.status(500).json({ error: 'Failed to fetch recently played', details: recentData });
+      console.error('Failed to fetch Spotify playback', recentData);
+      return res
+        .status(502)
+        .json({ error: 'Failed to fetch Spotify playback' });
     }
 
     const item = recentData.items?.[0];
@@ -54,6 +78,7 @@ export default async function handler(req, res) {
     res.setHeader('Cache-Control', 's-maxage=60, stale-while-revalidate');
     return res.status(200).json({ track });
   } catch (err) {
-    return res.status(500).json({ error: 'Server error', details: err.message });
+    console.error('Spotify API request failed', err);
+    return res.status(500).json({ error: 'Internal server error' });
   }
 }
