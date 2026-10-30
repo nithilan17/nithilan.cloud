@@ -1,11 +1,10 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect } from 'react';
 import { useTypewriter, Cursor } from 'react-simple-typewriter';
 import './Home.css';
 import Starfield from './Starfield';
 import githubLogo from '../Images/github.png';
 import linkedinLogo from '../Images/linkedin.png';
 import spotifyLogo from '../Images/spotify.png';
-// import calendarLogo from '../Images/calendar.png';
 import resumeLogo from '../Images/resume.png';
 
 function SpotifyNowPlaying() {
@@ -60,12 +59,12 @@ function Home() {
 
   useEffect(() => {
     console.log(
-      "%c👋 Hey, curious dev.",
-      "color: #1DB954; font-size: 16px; font-weight: bold;"
+      '%c👋 Hey, curious dev.',
+      'color: #1DB954; font-size: 16px; font-weight: bold;',
     );
     console.log(
-      "%cLike what you see? Check out the source: https://github.com/nithilan17",
-      "color: #a4a4a4; font-size: 12px;"
+      '%cLike what you see? Check out the source: https://github.com/nithilan17',
+      'color: #a4a4a4; font-size: 12px;',
     );
   }, []);
 
@@ -78,47 +77,58 @@ function Home() {
           <Cursor />
         </h1>
 
-      <section className="about-me">
-        <p>
-          I'm a software engineer from Chicago, IL📍
-          
-          <br></br> <br></br>
-          I studied Computer Science and Economics at <a href="https://siebelschool.illinois.edu/" target="_blank" rel="noopener noreferrer">UIUC</a> ('26). I am interested in <b>agentic AI</b>, <b>scalable systems</b>, and <b>automation</b>.
-          Feel free to reach out or connect!
-        </p>
-      </section>
+        <section className="about-me">
+          <p>
+            I&apos;m a software engineer from Chicago, IL 📍
+            <br /> <br />I studied Computer Science and Economics at{' '}
+            <a
+              href="https://siebelschool.illinois.edu/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              UIUC
+            </a>{' '}
+            ('26). I am interested in <b>agentic AI</b>, <b>scalable systems</b>
+            , and <b>automation</b>. Feel free to reach out or connect!
+          </p>
+        </section>
 
-      <SpotifyNowPlaying />
+        <SpotifyNowPlaying />
 
-      <div className="button-container">
-        <a href="https://github.com/nithilan17" target="_blank" rel="noopener noreferrer">
-          <button className="social-button">
-            <img src={githubLogo} alt="GitHub" className="social-logo" />
-          </button>
-        </a>
-        <a href="https://www.linkedin.com/in/nithilanelangovan/" target="_blank" rel="noopener noreferrer">
-          <button className="social-button">
-            <img src={linkedinLogo} alt="LinkedIn" className="social-logo" />
-          </button>
-        </a>
-        <a href="https://drive.google.com/file/d/108k3zyVZcQ9Jg1gJ7ZBZZJKCPYcz3MHY/view?usp=sharing" target="_blank" rel="noopener noreferrer">
-          <button className="social-button">
-            <img src={resumeLogo} alt="Resume" className="social-logo" />
-          </button>
-        </a>
-        {/* <a href="https://calendly.com/nithilan17" target="_blank" rel="noopener noreferrer">
-          <button className="social-button">
-            <img src={calendarLogo} alt="Calendar" className="social-logo" />
-          </button>
-        </a> */}
+        <div className="button-container">
+          <a
+            href="https://github.com/nithilan17"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <button className="social-button">
+              <img src={githubLogo} alt="GitHub" className="social-logo" />
+            </button>
+          </a>
+          <a
+            href="https://www.linkedin.com/in/nithilanelangovan/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <button className="social-button">
+              <img src={linkedinLogo} alt="LinkedIn" className="social-logo" />
+            </button>
+          </a>
+          <a
+            href="https://drive.google.com/file/d/108k3zyVZcQ9Jg1gJ7ZBZZJKCPYcz3MHY/view?usp=sharing"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <button className="social-button">
+              <img src={resumeLogo} alt="Resume" className="social-logo" />
+            </button>
+          </a>
+        </div>
 
-      </div>
-
-      {/* Footer Always at Bottom */}
-      <footer className="footer">
-        <p>&copy; {new Date().getFullYear()} Nithilan Elangovan</p>
-      </footer>
-
+        {/* Footer Always at Bottom */}
+        <footer className="footer">
+          <p>&copy; {new Date().getFullYear()} Nithilan Elangovan</p>
+        </footer>
       </header>
     </div>
   );

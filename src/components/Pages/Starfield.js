@@ -1,5 +1,5 @@
-import React, { useEffect, useState, useRef } from "react";
-import "./Starfield.css";
+import React, { useEffect, useState, useRef } from 'react';
+import './Starfield.css';
 
 const STAR_COUNT = 70;
 const MAX_CLICK_STARS = 8; // caps rapid-click spam
@@ -9,19 +9,19 @@ function randomBetween(min, max) {
 }
 
 function Starfield() {
-    const [stars] = useState(() =>
+  const [stars] = useState(() =>
     Array.from({ length: STAR_COUNT }, (_, i) => {
-        const duration = randomBetween(3, 7);
-        return {
+      const duration = randomBetween(3, 7);
+      return {
         id: i,
         top: randomBetween(0, 100),
         left: randomBetween(0, 100),
         size: randomBetween(1, 2.2),
         duration,
         delay: -randomBetween(0, duration),
-        };
-    })
-    );
+      };
+    }),
+  );
 
   const [shootingStars, setShootingStars] = useState([]);
   const nextId = useRef(0);
@@ -39,7 +39,11 @@ function Starfield() {
     };
 
     const spawnAmbientStar = () => {
-      spawnShootingStar(randomBetween(0, 40), randomBetween(0, 70), randomBetween(20, 35));
+      spawnShootingStar(
+        randomBetween(0, 40),
+        randomBetween(0, 70),
+        randomBetween(20, 35),
+      );
       timeoutId = setTimeout(spawnAmbientStar, randomBetween(6000, 14000));
     };
 
@@ -53,7 +57,9 @@ function Starfield() {
       // Soft rate-limit so someone spam-clicking doesn't flood the screen
       if (clickStarCount.current >= MAX_CLICK_STARS) return;
       clickStarCount.current += 1;
-      setTimeout(() => { clickStarCount.current -= 1; }, 1400);
+      setTimeout(() => {
+        clickStarCount.current -= 1;
+      }, 1400);
 
       const id = nextId.current++;
       const top = (e.clientY / window.innerHeight) * 100;
@@ -66,8 +72,8 @@ function Starfield() {
       }, 1400);
     };
 
-    window.addEventListener("click", handleClick);
-    return () => window.removeEventListener("click", handleClick);
+    window.addEventListener('click', handleClick);
+    return () => window.removeEventListener('click', handleClick);
   }, []);
 
   return (
@@ -93,7 +99,7 @@ function Starfield() {
           style={{
             top: `${s.top}%`,
             left: `${s.left}%`,
-            "--angle": `${s.angle}deg`,
+            '--angle': `${s.angle}deg`,
           }}
         />
       ))}

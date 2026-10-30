@@ -1,6 +1,6 @@
-import "./App.css";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Home  from "./components/Pages/Home";
+import './App.css';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Home from './components/Pages/Home';
 
 function App() {
   return (
@@ -12,7 +12,7 @@ function App() {
           </Routes>
         </div>
       </Router>
-  </>
+    </>
   );
 }
 

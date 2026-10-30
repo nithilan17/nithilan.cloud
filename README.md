@@ -1,6 +1,6 @@
 ## Visit the domain nithilan.cloud to see the result :)
 
-Developed by Nithilan Elangovan. Only public on github for website hosting, please do not fork or redistribute. 
+Developed by Nithilan Elangovan. Only public on github for website hosting, please do not fork or redistribute.
 
 # Getting Started with Create React App
 
