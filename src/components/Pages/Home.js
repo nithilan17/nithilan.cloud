@@ -63,7 +63,7 @@ function Home() {
       'color: #1DB954; font-size: 16px; font-weight: bold;',
     );
     console.log(
-      '%cconst nextStep = "build something delightful";',
+      '%cconst nextStep = "build something cool af";',
       'color: #8be9fd; font-family: monospace; font-size: 13px;',
     );
     console.log(
