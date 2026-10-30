@@ -1,8 +1,26 @@
 import { render, screen } from '@testing-library/react';
 import App from './App';
 
-test('renders learn react link', () => {
+beforeEach(() => {
+  jest.spyOn(console, 'error').mockImplementation(() => {});
+  jest.spyOn(console, 'log').mockImplementation(() => {});
+  global.fetch = jest.fn().mockResolvedValue({
+    json: jest.fn().mockResolvedValue({
+      track: {
+        name: 'Test Song',
+        artist: 'Test Artist',
+        url: 'https://open.spotify.com/',
+      },
+    }),
+  });
+});
+
+afterEach(() => {
+  jest.restoreAllMocks();
+});
+
+test('renders portfolio content and the latest Spotify track', async () => {
   render(<App />);
-  const linkElement = screen.getByText(/learn react/i);
-  expect(linkElement).toBeInTheDocument();
+  expect(screen.getByText(/Nithilan Elangovan/)).toBeInTheDocument();
+  expect(await screen.findByText('Test Song')).toBeInTheDocument();
 });
